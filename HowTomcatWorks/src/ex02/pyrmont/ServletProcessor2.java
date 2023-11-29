@@ -31,28 +31,28 @@ public class ServletProcessor2 {
       loader = new URLClassLoader(urls);
     }
     catch (IOException e) {
-      System.out.println(e.toString() );
+      System.out.println(e);
     }
     Class myClass = null;
     try {
       myClass = loader.loadClass(servletName);
     }
     catch (ClassNotFoundException e) {
-      System.out.println(e.toString());
+      System.out.println(e);
     }
 
-    Servlet servlet = null;
+    Servlet servlet;
     RequestFacade requestFacade = new RequestFacade(request);
     ResponseFacade responseFacade = new ResponseFacade(response);
     try {
       servlet = (Servlet) myClass.newInstance();
-      servlet.service((ServletRequest) requestFacade, (ServletResponse) responseFacade);
+      servlet.service(requestFacade, responseFacade);
     }
     catch (Exception e) {
-      System.out.println(e.toString());
+      System.out.println(e);
     }
     catch (Throwable e) {
-      System.out.println(e.toString());
+      System.out.println(e);
     }
 
   }

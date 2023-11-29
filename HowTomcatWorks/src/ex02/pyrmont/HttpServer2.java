@@ -33,9 +33,9 @@ public class HttpServer2 {
 
     // Loop waiting for a request
     while (!shutdown) {
-      Socket socket = null;
-      InputStream input = null;
-      OutputStream output = null;
+      Socket socket;
+      InputStream input;
+      OutputStream output;
       try {
         socket = serverSocket.accept();
         input = socket.getInputStream();
